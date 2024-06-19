@@ -1,1 +1,16 @@
-{}
+{
+  "routes": [
+    {
+      "route": "/api/products/*",
+      "methods": [
+        "get",
+        "post",
+        "put",
+        "delete"
+      ],
+      "allowedRoles": [
+        "authenticated"
+      ]
+    }
+  ]
+}
