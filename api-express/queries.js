@@ -1,11 +1,18 @@
 require('dotenv').config()
 const Pool = require('pg').Pool
 
-const connectionString = process.env.POSTGRES_URL
-
 const pool = new Pool({
-    connectionString
+    host: process.env.POSTGRES_HOST,
+    port: process.env.POSTGRES_PORT,
+    database: process.env.POSTGRES_DB,
+    user: process.env.POSTGRES_USER,
+    password: process.env.POSTGRES_PASSWORD
 })
+
+pool.query('SELECT NOW()', (err, res) => {
+  console.log(err, res);
+  pool.end();
+});
 
 const selectProducts = `SELECT EXISTS (
 SELECT * FROM pg_tables
