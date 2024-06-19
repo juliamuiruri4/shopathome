@@ -5,9 +5,6 @@ const cors = require('cors');
 const bodyParser = require('body-parser');
 require('dotenv').config();
 
-// const productData = require('./shared/product-data');
-// const discountData = require('./shared/discount-data');
-
 const db = require('./queries.js');
 app.use(cors());
 app.use(bodyParser.json());
@@ -21,7 +18,7 @@ app.get('/', (req, res) => {
 app.get('/api/discounts', db.getDiscounts);
 app.get('/api/products', db.getProducts);
 app.post('/api/products', db.addProduct);
-app.put('/api/products', db.updateProduct);
+app.put('/api/products/:id', db.updateProduct);
 app.delete('/api/products/:id', db.deleteProduct);
 
 // app.get('/api/discounts', (req, res) => {

@@ -1,9 +1,7 @@
-// postgresql database
-
-const Pool = require('pg').Pool
 require('dotenv').config()
+const Pool = require('pg').Pool
 
-const connectionString = process.env.POSTGRESS_URL
+const connectionString = process.env.POSTGRES_URL
 
 const pool = new Pool({
     connectionString
@@ -128,6 +126,7 @@ const deleteProduct = (request, response) => {
     }
     )
 }
+
 
 module.exports = {
     initializeDatabase,
