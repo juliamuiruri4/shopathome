@@ -1,5 +1,15 @@
 {
+  "trailingSlash": "auto",
   "routes": [
+    {
+      "route": "/api/*",
+      "methods": [
+        "GET"
+      ],
+      "allowedRoles": [
+        "authenticated"
+      ]
+    },
     {
       "route": "/api/products/*",
       "methods": [
