@@ -1,0 +1,27 @@
+name: shop-at-home
+
+services:
+ webapp:
+  project: ./react-app
+  dist: build
+  host: staticwebapp
+  hooks:
+      predeploy:
+        windows:
+          shell: pwsh
+          run: npm run build
+        posix:
+          shell: sh
+          run: npm run build
+
+ api:
+  project: ./api
+  host: function
+  hooks:
+  postprovision:
+    windows:
+      shell: pwsh
+      run: azd env get-values > api/.env
+    posix:
+      shell: sh
+      run: azd env get-values > api/.env
