@@ -2,8 +2,8 @@ name: shop-at-home
 
 services:
  webapp:
-  project: ./react-app
-  dist: build
+  project: ./angular-app
+  dist: dist
   host: staticwebapp
   hooks:
       predeploy:
@@ -14,14 +14,14 @@ services:
           shell: sh
           run: npm run build
 
- api:
-  project: ./api
-  host: function
-  hooks:
-  postprovision:
-    windows:
-      shell: pwsh
-      run: azd env get-values > api/.env
-    posix:
-      shell: sh
-      run: azd env get-values > api/.env
+#  api:
+#   project: ./api
+#   host: function
+#   hooks:
+#   postprovision:
+#     windows:
+#       shell: pwsh
+#       run: azd env get-values > api/.env
+#     posix:
+#       shell: sh
+#       run: azd env get-values > api/.env
